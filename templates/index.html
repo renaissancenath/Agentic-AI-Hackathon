@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PulseAI | API Observability</title>
     
-    <!-- Premium Fonts -->
+ 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            /* Linear/Vercel inspired dark theme */
+       
             --bg-base: #09090b;
             --bg-surface: #18181b;
             --bg-panel: #111113;
@@ -45,13 +45,13 @@
             background-image: radial-gradient(circle at 50% 0%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
         }
 
-        /* Custom Scrollbar */
+       
         ::-webkit-scrollbar { width: 8px; height: 8px; }
         ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: var(--border-hover); }
 
-        /* Navbar */
+       
         header {
             padding: 1rem 2rem;
             border-bottom: 1px solid var(--border);
@@ -105,7 +105,7 @@
             100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
         }
 
-        /* Main Layout */
+       
         .container {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -138,7 +138,7 @@
             align-items: center;
         }
 
-        /* Textarea Input */
+        
         .editor-container {
             flex: 1;
             display: flex;
@@ -185,7 +185,7 @@
             line-height: 1.6;
         }
 
-        /* Action Buttons */
+       
         .actions {
             display: flex;
             gap: 12px;
@@ -225,7 +225,7 @@
 
         button:disabled { opacity: 0.7; cursor: not-allowed; transform: none !important; }
 
-        /* Output Area Styling */
+       
         #empty-state {
             display: flex;
             flex-direction: column;
@@ -253,7 +253,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Metrics Grid */
+      
         .metrics-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -267,7 +267,7 @@
         .metric-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600; }
         .metric-value { font-size: 1.5rem; font-weight: 700; display: flex; align-items: center; gap: 8px; }
 
-        /* Dynamic Badges */
+       
         .badge {
             font-size: 0.75rem;
             padding: 4px 10px;
@@ -281,7 +281,7 @@
         .badge.high { background: rgba(245, 158, 11, 0.1); color: var(--status-high); border: 1px solid rgba(245, 158, 11, 0.2); }
         .badge.low { background: rgba(16, 185, 129, 0.1); color: var(--status-low); border: 1px solid rgba(16, 185, 129, 0.2); }
 
-        /* Typography inside results */
+        
         h3 { font-size: 1rem; margin: 20px 0 10px 0; color: var(--text-main); font-weight: 600; }
         
         .root-cause-box {
@@ -310,7 +310,7 @@
             font-family: monospace;
         }
 
-        /* Code Block */
+     
         pre {
             background: #000;
             border: 1px solid var(--border);
@@ -326,7 +326,7 @@
             margin-top: 16px;
         }
 
-        /* Spin Animation */
+       
         .spin { animation: spin 1s linear infinite; }
         @keyframes spin { 100% { transform: rotate(360deg); } }
     </style>
@@ -344,7 +344,7 @@
     </header>
 
     <div class="container">
-        <!-- Left Panel: Input -->
+       
         <div class="panel panel-left">
             <div class="panel-title">
                 <span>Raw Log Ingestion</span>
@@ -375,7 +375,7 @@ PUT /users → database overload</textarea>
             </div>
         </div>
 
-        <!-- Right Panel: Output -->
+       
         <div class="panel panel-right">
             <div class="panel-title">Observability Output</div>
 
@@ -391,7 +391,7 @@ PUT /users → database overload</textarea>
     </div>
 
 <script>
-    // Utility to toggle loading states beautifully
+  
     function setLoadingState(btnId, isSubmitting, text) {
         const btn = document.getElementById(btnId);
         if (isSubmitting) {
@@ -408,7 +408,7 @@ PUT /users → database overload</textarea>
         document.getElementById('empty-state').style.display = 'none';
     }
 
-    // Helper function to color map severity
+   
     function getSeverityClass(severityStr) {
         const s = (severityStr || '').toLowerCase();
         if(s.includes('critical') || s.includes('high')) return 'critical';
@@ -438,7 +438,7 @@ PUT /users → database overload</textarea>
             const resultBox = document.getElementById("result");
             resultBox.style.display = "block";
 
-            // Determine dynamic classes based on severity
+           
             const sevClass = getSeverityClass(res.severity);
             const scoreColor = res.score < 50 ? 'var(--status-low)' : (res.score < 80 ? 'var(--status-high)' : 'var(--status-critical)');
 
@@ -505,7 +505,7 @@ PUT /users → database overload</textarea>
             
             const scriptBox = document.getElementById("script");
             scriptBox.style.display = "block";
-            // Adds a bash-like syntax visual wrapper
+          
             scriptBox.innerHTML = `<span style="color: #8b5cf6;">#!/bin/bash</span>\n<span style="color: var(--text-muted);"># Auto-generated fix by PulseAI</span>\n\n${data.script || 'echo "No script generated."'}`;
             
         } catch (error) {
