@@ -1,4 +1,4 @@
-# ▲ PulseAI 
+# ▲ PulseAI --
 **Submission for Problem Statement: API Failure Detection & Debugging Agent**
 
 > **PulseAI** is an intelligent observability agent that detects silent API failures, groups anomalies, and generates automated fix scripts before users even notice downtime.
