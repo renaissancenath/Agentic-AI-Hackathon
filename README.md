@@ -1,7 +1,7 @@
 # ▲ PulseAI 
 **Submission for Problem Statement: API Failure Detection & Debugging Agent**
 
-> **PulseAI** is an intelligent observability agent that detects silent API failures, groups anomalies, and generates automated fix scripts before users even notice downtime.
+> **PulseAI** is an intelligent observability agent that detects silent API failures, groups anomalies, and generates automated fix scripts before users even notice downtime..
 
 ## The Problem
 Engineering teams struggle to detect silent API failures. Traditional monitoring tools throw thousands of raw logs at developers, leading to high Mean Time To Resolution (MTTR).
